@@ -248,13 +248,9 @@ export default function Navbar() {
           <div className='md:hidden'>
             <Sheet>
               <SheetTrigger asChild>
-                <Button
-                  variant='ghost'
-                  size='icon'
-                  className='h-10 w-10 rounded-full'>
-                  <Menu className='h-6 w-6' />
-                  <span className='sr-only'>Toggle menu</span>
-                </Button>
+                <button aria-label='Open navigation menu'>
+                  <Menu className='w-8 h-8 dark:text-white' />
+                </button>
               </SheetTrigger>
               <SheetContent side='right' className='w-[300px] sm:w-[400px] p-0'>
                 <div className='flex flex-col h-full'>
