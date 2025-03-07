@@ -2,6 +2,9 @@
 import React from "react";
 import Hero from "./hero";
 import About from "./about";
+import Products from "./products";
+import Agents from "./agents";
+import Partners from "./partners";
 
 export default function HomePage() {
   return (
@@ -18,6 +21,9 @@ export default function HomePage() {
         <div className='pt-12'>
           <Hero />
           <About />
+          <Products />
+          <Agents />
+          <Partners />
         </div>
       </div>
     </div>

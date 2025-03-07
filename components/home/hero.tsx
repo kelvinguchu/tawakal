@@ -1,13 +1,14 @@
 "use client";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function Hero() {
   return (
     <div className='relative overflow-hidden py-16 px-4 md:px-8 lg:px-16 max-w-7xl mx-auto'>
-      <div className='grid grid-cols-1 lg:grid-cols-2 gap-12 items-center'>
+      <div className='flex flex-col-reverse lg:grid lg:grid-cols-2 gap-12 items-center'>
         {/* Left side content */}
-        <div className='space-y-8 z-10'>
+        <div className='space-y-8 z-10 mt-12 lg:mt-0'>
           <div className='inline-block px-4 py-2 bg-tawakal-green/10 rounded-full'>
             <p className='text-tawakal-green font-medium text-sm'>
               Safe, Secure & Reliable Since 40+ Years
@@ -28,23 +29,27 @@ export default function Hero() {
           </p>
 
           <div className='flex flex-col sm:flex-row gap-4'>
-            <Button className='bg-gradient-to-r from-tawakal-green to-tawakal-blue hover:from-tawakal-blue hover:to-tawakal-green text-white rounded-full px-8 py-6 text-base shadow-md hover:shadow-lg transition-all duration-300'>
-              Download our apps <span className='ml-2'>→</span>
-            </Button>
+            <Link href='#products'>
+              <Button className='bg-gradient-to-r from-tawakal-green to-tawakal-blue hover:from-tawakal-blue hover:to-tawakal-green text-white rounded-full px-8 py-6 text-base shadow-md hover:shadow-lg transition-all duration-300'>
+                Download our apps <span className='ml-2'>→</span>
+              </Button>
+            </Link>
 
-            <Button
-              variant='outline'
-              className='border-zinc-300 hover:bg-zinc-100 text-zinc-800 rounded-full px-8 py-6 text-base'>
-              Find agents
-            </Button>
+            <Link href='#agents'>
+              <Button
+                variant='outline'
+                className='border-zinc-300 hover:bg-zinc-100 text-zinc-800 rounded-full px-8 py-6 text-base'>
+                Find agents
+              </Button>
+            </Link>
           </div>
         </div>
 
         {/* Right side with card mockups */}
-        <div className='relative h-[500px] z-10'>
+        <div className='relative h-[400px] lg:h-[500px] z-10 w-full'>
           <div className='absolute top-0 left-0 w-full h-full'>
             {/* Credit Card */}
-            <div className='absolute top-10 left-10 w-72 h-44 bg-gradient-to-br from-tawakal-green to-tawakal-blue rounded-2xl shadow-xl transform rotate-6 z-20'>
+            <div className='absolute top-10 left-10 w-64 md:w-72 h-40 md:h-44 bg-gradient-to-br from-tawakal-green to-tawakal-blue rounded-2xl shadow-xl transform rotate-6 z-20'>
               <div className='p-6 text-white h-full flex flex-col justify-between'>
                 <div className='flex justify-between items-start'>
                   <div>
@@ -78,7 +83,7 @@ export default function Hero() {
             </div>
 
             {/* Transaction Card */}
-            <div className='absolute bottom-20 right-10 w-64 bg-white rounded-xl shadow-lg p-4 transform -rotate-3 z-10'>
+            <div className='absolute bottom-20 right-10 w-56 md:w-64 bg-white rounded-xl shadow-lg p-4 transform -rotate-3 z-10'>
               <div className='flex items-center mb-3'>
                 <div className='w-10 h-10 rounded-lg bg-tawakal-green/10 flex items-center justify-center mr-3'>
                   <Image
@@ -102,17 +107,17 @@ export default function Hero() {
             </div>
 
             {/* Stats Card */}
-            <div className='absolute top-40 right-0 w-56 bg-white rounded-xl shadow-lg p-4 transform rotate-12 z-0'>
+            <div className='absolute top-40 right-0 w-48 md:w-56 bg-white rounded-xl shadow-lg p-4 transform rotate-12 z-0'>
               <p className='text-sm font-medium text-zinc-800 mb-2'>
                 Global Transfers
               </p>
               <div className='h-24 flex items-end space-x-2'>
-                <div className='w-6 bg-tawakal-green/20 rounded-t-md h-12'></div>
-                <div className='w-6 bg-tawakal-green/30 rounded-t-md h-16'></div>
-                <div className='w-6 bg-tawakal-green/50 rounded-t-md h-10'></div>
-                <div className='w-6 bg-tawakal-green/70 rounded-t-md h-20'></div>
-                <div className='w-6 bg-tawakal-green rounded-t-md h-14'></div>
-                <div className='w-6 bg-tawakal-green/60 rounded-t-md h-18'></div>
+                <div className='w-5 md:w-6 bg-tawakal-green/20 rounded-t-md h-12'></div>
+                <div className='w-5 md:w-6 bg-tawakal-green/30 rounded-t-md h-16'></div>
+                <div className='w-5 md:w-6 bg-tawakal-green/50 rounded-t-md h-10'></div>
+                <div className='w-5 md:w-6 bg-tawakal-green/70 rounded-t-md h-20'></div>
+                <div className='w-5 md:w-6 bg-tawakal-green rounded-t-md h-14'></div>
+                <div className='w-5 md:w-6 bg-tawakal-green/60 rounded-t-md h-18'></div>
               </div>
               <div className='flex justify-between mt-2'>
                 <p className='text-xs text-zinc-500'>Jan</p>
@@ -121,7 +126,7 @@ export default function Hero() {
             </div>
 
             {/* Notification Card */}
-            <div className='absolute bottom-40 left-0 w-48 bg-white rounded-xl shadow-lg p-3 transform -rotate-6 z-30'>
+            <div className='absolute bottom-40 left-0 w-40 md:w-48 bg-white rounded-xl shadow-lg p-3 transform -rotate-6 z-30'>
               <div className='flex items-center'>
                 <div className='w-8 h-8 rounded-full bg-tawakal-blue/10 flex items-center justify-center mr-2'>
                   <Image
