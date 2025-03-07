@@ -14,7 +14,7 @@ const partners = [
   {
     id: 2,
     name: "Hormuud",
-    logo: "/images/partner-hormuud.png",
+    logo: "/images/hormuud.svg",
     category: "Telecommunications",
     region: "Somalia",
   },

@@ -40,29 +40,19 @@ export default function Footer() {
             </p>
             <div className='flex space-x-3'>
               <a
-                href='#'
+                href='https://www.facebook.com/share/19J36i8vZW/'
                 className='text-zinc-400 hover:text-tawakal-green transition-colors'>
                 <Facebook size={18} />
               </a>
               <a
-                href='#'
+                href='https://x.com/TawakalExpress?t=SPrcwlD0rDuUrK7KK4PITA&s=09'
                 className='text-zinc-400 hover:text-tawakal-blue transition-colors'>
                 <Twitter size={18} />
               </a>
               <a
-                href='#'
+                href='https://www.instagram.com/tawakalexpress?igsh=MWE0eDRneHBhYWY2cw=='
                 className='text-zinc-400 hover:text-tawakal-red transition-colors'>
                 <Instagram size={18} />
-              </a>
-              <a
-                href='#'
-                className='text-zinc-400 hover:text-tawakal-gold transition-colors'>
-                <Linkedin size={18} />
-              </a>
-              <a
-                href='#'
-                className='text-zinc-400 hover:text-zinc-800 transition-colors'>
-                <Youtube size={18} />
               </a>
             </div>
           </div>
