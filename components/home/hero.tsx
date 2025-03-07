@@ -8,7 +8,7 @@ export default function Hero() {
     <div className='relative overflow-hidden py-16 px-4 md:px-8 lg:px-16 max-w-7xl mx-auto'>
       <div className='flex flex-col-reverse lg:grid lg:grid-cols-2 gap-12 items-center'>
         {/* Left side content */}
-        <div className='space-y-8 z-10 text-center lg:text-left -mt-24 lg:mt-0 '>
+        <div className='space-y-8 z-10 -mt-24 lg:mt-0 '>
           <div className='inline-block px-4 py-2 bg-tawakal-green/10 rounded-full'>
             <p className='text-tawakal-green font-medium text-sm'>
               Safe, Secure & Reliable Since 40+ Years
@@ -28,7 +28,7 @@ export default function Hero() {
             delivery.
           </p>
 
-          <div className='flex flex-col sm:flex-row gap-4'>
+          <div className='flex flex-col sm:flex-row gap-4 text-center lg:text-left'>
             <Link href='#products'>
               <Button className='bg-gradient-to-r from-tawakal-green to-tawakal-blue hover:from-tawakal-blue hover:to-tawakal-green text-white rounded-full px-8 py-6 text-base shadow-md hover:shadow-lg transition-all duration-300'>
                 Download our apps <span className='ml-2'>→</span>
