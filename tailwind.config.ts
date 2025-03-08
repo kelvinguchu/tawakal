@@ -92,59 +92,107 @@ const config: Config = {
             height: "0",
           },
         },
-        "card-breathe": {
+        pulse: {
           "0%, 100%": {
-            boxShadow:
-              "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
-            transform: "scale(1) rotate(6deg)",
+            opacity: "1",
           },
           "50%": {
-            boxShadow:
-              "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
-            transform: "scale(1.02) rotate(6deg)",
+            opacity: "0.5",
           },
         },
-        "card-breathe-alt": {
-          "0%, 100%": {
-            boxShadow:
-              "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
-            transform: "scale(1) rotate(-3deg)",
+        progress: {
+          "0%": {
+            width: "0%",
           },
-          "50%": {
-            boxShadow:
-              "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
-            transform: "scale(1.02) rotate(-3deg)",
+          "100%": {
+            width: "100%",
           },
         },
-        "subtle-float": {
+        float: {
           "0%, 100%": {
             transform: "translateY(0)",
           },
           "50%": {
-            transform: "translateY(-5px)",
+            transform: "translateY(-10px)",
           },
         },
-        "bar-pulse": {
+        "float-slow": {
           "0%, 100%": {
-            opacity: "1",
-            transform: "scaleY(1)",
+            transform: "translateY(0)",
           },
           "50%": {
-            opacity: "0.9",
-            transform: "scaleY(1.1)",
+            transform: "translateY(-7px)",
+          },
+        },
+        "float-reverse": {
+          "0%, 100%": {
+            transform: "translateY(0)",
+          },
+          "50%": {
+            transform: "translateY(8px)",
+          },
+        },
+        "spin-slow": {
+          "0%": {
+            transform: "rotate(0deg)",
+          },
+          "100%": {
+            transform: "rotate(360deg)",
+          },
+        },
+        glow: {
+          "0%, 100%": {
+            opacity: "0.5",
+            boxShadow: "0 0 20px rgba(47, 180, 87, 0.3)",
+          },
+          "50%": {
+            opacity: "1",
+            boxShadow: "0 0 30px rgba(47, 180, 87, 0.6)",
+          },
+        },
+        "ping-slow": {
+          "0%": {
+            transform: "scale(1)",
+            opacity: "0.8",
+          },
+          "50%": {
+            transform: "scale(1.2)",
+            opacity: "0.4",
+          },
+          "100%": {
+            transform: "scale(1)",
+            opacity: "0.8",
+          },
+        },
+        ripple: {
+          "0%, 100%": {
+            transform: "translate(-50%, -50%) scale(1)",
+          },
+          "50%": {
+            transform: "translate(-50%, -50%) scale(0.9)",
           },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "card-breathe": "card-breathe 8s ease-in-out infinite",
-        "card-breathe-alt": "card-breathe-alt 8s ease-in-out infinite",
-        "subtle-float": "subtle-float 6s ease-in-out infinite",
-        "bar-pulse": "bar-pulse 4s ease-in-out infinite",
+        pulse: "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+        progress: "progress 2.5s ease-out",
+        float: "float 5s ease-in-out infinite",
+        "float-slow": "float-slow 7s ease-in-out infinite",
+        "float-reverse": "float-reverse 6s ease-in-out infinite",
+        "spin-slow": "spin-slow 15s linear infinite",
+        glow: "glow 3s ease-in-out infinite",
+        "ping-slow": "ping-slow 4s ease-in-out infinite",
+        ripple: "ripple var(--duration,2s) ease calc(var(--i, 0)*.2s) infinite",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+      },
+      transitionDelay: {
+        "1500": "1500ms",
+        "2000": "2000ms",
+        "3000": "3000ms",
       },
     },
   },

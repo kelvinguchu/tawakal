@@ -9,12 +9,22 @@ import Partners from "./partners";
 export default function HomePage() {
   return (
     <div className='min-h-screen relative overflow-hidden font-montserrat'>
-      {/* Clean, simple background gradient */}
-      <div className='absolute inset-0 bg-gradient-to-b from-[#f9f9f9] to-[#f0f9ff] -z-30'></div>
+      {/* Main background gradient */}
+      <div className='absolute inset-0 bg-gradient-to-b from-primary/5 to-primary/10 dark:from-zinc-900 dark:to-zinc-800 -z-30'></div>
 
-      {/* Subtle brand-colored accents */}
-      <div className='absolute top-0 right-0 w-1/3 h-1/3 bg-tawakal-green/5 rounded-full blur-3xl -z-20'></div>
-      <div className='absolute bottom-0 left-0 w-1/3 h-1/3 bg-tawakal-blue/5 rounded-full blur-3xl -z-20'></div>
+      {/* Glowing orbs in background */}
+      <div className='absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-tawakal-green/10 blur-[100px] animate-pulse -z-20'></div>
+      <div className='absolute bottom-1/4 right-1/4 w-64 h-64 rounded-full bg-tawakal-blue/10 blur-[100px] animate-pulse -z-20'></div>
+
+      {/* Decorative elements */}
+      <div className="absolute inset-0 bg-[url('/patterns/grid.svg')] bg-repeat opacity-[0.02] -z-10"></div>
+      <div className='absolute top-20 left-10 w-20 h-20 border border-tawakal-green/20 rounded-full animate-spin-slow -z-10'></div>
+      <div className='absolute bottom-20 right-10 w-16 h-16 border border-tawakal-blue/20 rounded-full animate-spin-slow [animation-direction:reverse] -z-10'></div>
+
+      {/* Floating particles */}
+      <div className='absolute top-1/3 right-1/4 w-3 h-3 rounded-full bg-tawakal-green/50 animate-float-slow -z-10'></div>
+      <div className='absolute bottom-1/3 left-1/3 w-2 h-2 rounded-full bg-tawakal-blue/50 animate-float -z-10'></div>
+      <div className='absolute top-2/3 right-1/3 w-4 h-4 rounded-full bg-tawakal-red/30 animate-float-reverse -z-10'></div>
 
       {/* Content */}
       <div className='relative z-10'>
