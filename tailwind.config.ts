@@ -92,19 +92,56 @@ const config: Config = {
             height: "0",
           },
         },
-        "pulse-slow": {
+        "card-breathe": {
           "0%, 100%": {
-            opacity: "0.6",
+            boxShadow:
+              "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+            transform: "scale(1) rotate(6deg)",
+          },
+          "50%": {
+            boxShadow:
+              "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+            transform: "scale(1.02) rotate(6deg)",
+          },
+        },
+        "card-breathe-alt": {
+          "0%, 100%": {
+            boxShadow:
+              "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+            transform: "scale(1) rotate(-3deg)",
+          },
+          "50%": {
+            boxShadow:
+              "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+            transform: "scale(1.02) rotate(-3deg)",
+          },
+        },
+        "subtle-float": {
+          "0%, 100%": {
+            transform: "translateY(0)",
+          },
+          "50%": {
+            transform: "translateY(-5px)",
+          },
+        },
+        "bar-pulse": {
+          "0%, 100%": {
+            opacity: "1",
+            transform: "scaleY(1)",
           },
           "50%": {
             opacity: "0.9",
+            transform: "scaleY(1.1)",
           },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "pulse-slow": "pulse-slow 6s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+        "card-breathe": "card-breathe 8s ease-in-out infinite",
+        "card-breathe-alt": "card-breathe-alt 8s ease-in-out infinite",
+        "subtle-float": "subtle-float 6s ease-in-out infinite",
+        "bar-pulse": "bar-pulse 4s ease-in-out infinite",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
