@@ -99,10 +99,6 @@ export default function Agents() {
         <div className='relative h-[300px] mb-16 rounded-3xl overflow-hidden shadow-xl'>
           {/* Map background */}
           <div className='absolute inset-0 bg-gradient-to-b from-[#1a2942] to-[#0f172a] z-0'></div>
-
-          {/* World map outline */}
-          <div className="absolute inset-0 bg-[url('/images/world-map-outline.png')] bg-no-repeat bg-center bg-contain opacity-30 z-10"></div>
-
           {/* Animated glow effect */}
           <div className='absolute inset-0 bg-gradient-to-tr from-tawakal-green/20 via-transparent to-tawakal-blue/20 animate-pulse z-20'></div>
 

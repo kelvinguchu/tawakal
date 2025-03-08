@@ -185,7 +185,7 @@ export default function GlobalPresence() {
           {/* World map dots overlay */}
           <div className='absolute inset-0 z-20'>
             <Image
-              src='/images/world-map-dots.svg'
+              src='/icons/world-map-dots.svg'
               alt='World Map'
               fill
               className='object-contain opacity-60'
