@@ -41,7 +41,7 @@ export default function Hero() {
   }, [countries.length]);
 
   return (
-    <section className='relative h-[100vh] pt-0 -mt-24 sm:mt-0 sm:pt-20 flex items-center'>
+    <section className='relative h-[100vh] pt-0 -mt-20 sm:mt-0 sm:pt-20 flex items-center'>
       {/* Main content container */}
       <div className='container mx-auto px-4 relative z-10 h-full flex items-center'>
         <div className='flex flex-col-reverse lg:flex-row w-full gap-4 sm:gap-8 items-center'>
