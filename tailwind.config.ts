@@ -172,6 +172,18 @@ const config: Config = {
             transform: "translate(-50%, -50%) scale(0.9)",
           },
         },
+        quickPulse: {
+          "0%, 100%": { transform: "scale(1)" },
+          "50%": { transform: "scale(1.05)" },
+        },
+        "gradient-x": {
+          "0%, 100%": {
+            "background-position": "0% 50%",
+          },
+          "50%": {
+            "background-position": "100% 50%",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -185,6 +197,8 @@ const config: Config = {
         glow: "glow 3s ease-in-out infinite",
         "ping-slow": "ping-slow 4s ease-in-out infinite",
         ripple: "ripple var(--duration,2s) ease calc(var(--i, 0)*.2s) infinite",
+        "quick-pulse": "quickPulse 1s ease-in-out",
+        "gradient-x": "gradient-x 15s ease infinite",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

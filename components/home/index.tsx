@@ -8,8 +8,8 @@ import Partners from "./partners";
 
 export default function HomePage() {
   return (
-    <div className='min-h-screen relative overflow-hidden font-montserrat'>
-      {/* Main background gradient */}
+    <main className='min-h-screen relative overflow-visible font-montserrat'>
+      {/* Main background gradient - ensure it doesn't extend beyond this component */}
       <div className='absolute inset-0 bg-gradient-to-b from-primary/5 to-primary/10 dark:from-zinc-900 dark:to-zinc-800 -z-30'></div>
 
       {/* Glowing orbs in background */}
@@ -33,6 +33,6 @@ export default function HomePage() {
           <Partners />
         </div>
       </div>
-    </div>
+    </main>
   );
 }

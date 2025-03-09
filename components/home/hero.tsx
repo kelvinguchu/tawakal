@@ -41,7 +41,7 @@ export default function Hero() {
   }, [countries.length]);
 
   return (
-    <section className='relative h-[100vh] pt-0 -mt-20 sm:mt-0 sm:pt-20 flex items-center'>
+    <section className='relative h-[100vh] pt-0 -mt-8 sm:mt-0 sm:pt-20 flex items-center'>
       {/* Main content container */}
       <div className='container mx-auto px-4 relative z-10 h-full flex items-center'>
         <div className='flex flex-col-reverse lg:flex-row w-full gap-4 sm:gap-8 items-center'>
@@ -57,7 +57,7 @@ export default function Hero() {
               className='px-3 sm:px-4 py-1 sm:py-1.5 bg-primary/10 dark:bg-primary/20 border-0 rounded-full'>
               <span className='text-primary dark:text-white font-medium text-xs sm:text-sm flex items-center'>
                 <CheckCircle2 className='w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2 text-tawakal-green animate-pulse' />
-                Safe, Secure & Reliable Since 40+ Years
+                Safe, Secure & Reliable
               </span>
             </Badge>
 
@@ -93,8 +93,8 @@ export default function Hero() {
                     </span>
                   </span>
                 </div>
-              </div>
-            </h1>
+          </div>
+          </h1>
 
             <p className='text-sm sm:text-base md:text-lg max-w-none text-muted-foreground dark:text-zinc-300'>
               Send money to family and friends across{" "}
@@ -116,18 +116,18 @@ export default function Hero() {
                     <ArrowRight className='w-3 h-3 md:w-4 md:h-4 ml-1 md:ml-2 group-hover:translate-x-1 transition-transform duration-300' />
                   </span>
                   <span className='absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500'></span>
-                </Button>
-              </Link>
+              </Button>
+            </Link>
 
               <Link href='#agents' className='flex-1'>
-                <Button
-                  variant='outline'
+              <Button
+                variant='outline'
                   size='lg'
                   className='w-full border-tawakal-blue/20 hover:border-tawakal-blue hover:bg-tawakal-blue/5 dark:border-zinc-700 dark:hover:bg-zinc-800 text-foreground dark:text-white rounded-full px-2 sm:px-3 md:px-6 py-1.5 sm:py-2 md:py-5 text-xs md:text-base group'>
                   <MapPin className='w-3 h-3 md:w-4 md:h-4 mr-1 md:mr-2 text-tawakal-blue group-hover:text-tawakal-blue' />
                   <span>Find agents</span>
-                </Button>
-              </Link>
+              </Button>
+            </Link>
             </div>
 
             {/* Countries list with globe icon */}
@@ -156,8 +156,8 @@ export default function Hero() {
                   </span>
                 ))}
               </div>
+              </div>
             </div>
-          </div>
 
           {/* Right side - Interactive visualization */}
           <div

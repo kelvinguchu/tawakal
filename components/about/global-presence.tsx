@@ -147,15 +147,6 @@ export default function GlobalPresence() {
               International Network
             </p>
           </div>
-          <h2 className='text-4xl md:text-5xl font-bold mb-6'>
-            Our <span className='text-gradient-green-blue'>Global</span>{" "}
-            Presence
-          </h2>
-          <p className='text-zinc-600 text-lg max-w-3xl mx-auto'>
-            With branches, agents, and partnerships across multiple continents,
-            we connect people worldwide through our reliable money transfer
-            services.
-          </p>
         </div>
 
         {/* World Map Visualization */}

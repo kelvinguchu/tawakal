@@ -1,399 +1,318 @@
 "use client";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faGlobe,
+  faHandshake,
+  faShieldHalved,
+  faClock,
+  faMoneyBillTransfer,
+  faChartLine,
+  faUsers,
+  faHeart,
+  faBolt,
+  faLocationDot,
+  faArrowRight,
+  faBuilding,
+  faEarthAfrica,
+  faEarthAmericas,
+  faEarthAsia,
+  faPhone,
+  faStar,
+} from "@fortawesome/free-solid-svg-icons";
+import { motion } from "framer-motion";
+
+// Import our custom components
+import MoneyFlowVisualization from "./money_flow_visualization";
+import RegionSection from "./region_section";
+import ScrollBackgroundEffect from "./scroll_background_effect";
+import AnimatedStats from "./animated_stats";
+import ValuesSection from "./values_section";
 
 export default function About() {
+  // Track if component is mounted
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+    return () => setIsMounted(false);
+  }, []);
+
+  // Define map markers
+  const eastAfricaMarkers = [
+    {
+      name: "Mogadishu",
+      coordinates: [45.3, 2.0] as [number, number],
+      color: "#2fb457",
+    },
+    {
+      name: "Nairobi",
+      coordinates: [36.8, -1.3] as [number, number],
+      color: "#0075be",
+    },
+    {
+      name: "Addis Ababa",
+      coordinates: [38.7, 9.0] as [number, number],
+      color: "#f59e0b",
+    },
+  ];
+
+  const middleEastMarkers = [
+    {
+      name: "Dubai",
+      coordinates: [55.3, 25.3] as [number, number],
+      color: "#d24935",
+    },
+    {
+      name: "Riyadh",
+      coordinates: [46.7, 24.7] as [number, number],
+      color: "#f59e0b",
+    },
+    {
+      name: "Doha",
+      coordinates: [51.5, 25.3] as [number, number],
+      color: "#0075be",
+    },
+  ];
+
+  const northAmericaEuropeMarkers = [
+    {
+      name: "London",
+      coordinates: [-0.1, 51.5] as [number, number],
+      color: "#0075be",
+    },
+    {
+      name: "Minneapolis",
+      coordinates: [-93.3, 45.0] as [number, number],
+      color: "#2fb457",
+    },
+    {
+      name: "Toronto",
+      coordinates: [-79.4, 43.7] as [number, number],
+      color: "#f59e0b",
+    },
+  ];
+
   return (
-    <section className='py-24 relative overflow-hidden'>
+    <section className='py-10 sm:py-16 md:py-20 lg:py-24 relative overflow-hidden'>
       {/* Background elements - matching Hero style */}
       <div className='absolute inset-0 bg-gradient-to-b from-[#f9f9f9] to-[#f0f9ff] -z-30'></div>
       <div className='absolute top-0 right-0 w-1/3 h-1/3 bg-tawakal-green/5 rounded-full blur-3xl -z-20'></div>
       <div className='absolute bottom-0 left-0 w-1/3 h-1/3 bg-tawakal-blue/5 rounded-full blur-3xl -z-20'></div>
       <div className='absolute top-1/2 left-1/4 w-64 h-64 bg-tawakal-red/5 rounded-full blur-3xl -z-20'></div>
 
-      <div className='container mx-auto px-4'>
-        {/* Section header */}
-        <div className='text-center mb-16'>
-          <div className='inline-block px-4 py-2 bg-tawakal-green/10 rounded-full mb-4'>
-            <p className='text-tawakal-green font-medium text-sm'>
-              40+ Years of Excellence
+      <div className='container mx-auto px-4 sm:px-6'>
+        {/* Section header - more responsive */}
+        <div className='text-center mb-10 sm:mb-16'>
+          <div className='inline-block px-3 py-1.5 sm:px-4 sm:py-2 bg-tawakal-green/10 rounded-full mb-3 sm:mb-4'>
+            <p className='text-tawakal-green font-medium text-xs sm:text-sm flex items-center justify-center'>
+              <FontAwesomeIcon
+                icon={faBuilding}
+                className='mr-1.5 sm:mr-2 h-3 w-3 sm:h-3.5 sm:w-3.5'
+              />
+              About Tawakal Express
             </p>
           </div>
-          <h2 className='text-4xl md:text-5xl font-bold mb-6'>
-            Our <span className='text-gradient-green-blue'>Global</span>{" "}
-            <span className='text-gradient-blue-red'>Story</span>
-          </h2>
-          <p className='text-zinc-600 text-lg max-w-3xl mx-auto'>
-            From our humble beginnings in Somalia to becoming a global financial
-            service provider, we've been connecting families across continents
-            for over four decades.
-          </p>
         </div>
 
-        {/* Main content - Creative layout */}
-        <div className='relative'>
-          {/* Creative image display */}
-          <div className='relative mx-auto mb-24'>
-            <div className='grid grid-cols-1 lg:grid-cols-12 gap-6 items-center'>
-              {/* Left side - Image with creative overlay */}
-              <div className='lg:col-span-7 relative'>
-                <div className='relative h-[400px] rounded-2xl overflow-hidden shadow-2xl'>
-                  <Image
-                    src='/images/globe.webp'
-                    alt='International Money Transfer'
-                    fill
-                    className='object-cover'
-                  />
+        {/* Global Network Map - responsive height */}
+        <div className='mt-6 sm:mt-10 md:mt-16'>
+          {isMounted && (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.98 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className='relative rounded-2xl overflow-hidden shadow-xl'>
+              <div className='h-[350px] sm:h-[400px] md:h-[500px] w-full'>
+                {isMounted && (
+                  <MoneyFlowVisualization hideDecorativeOrbs={true} />
+                )}
+              </div>
 
-                  {/* Creative overlay elements */}
-                  <div className='absolute inset-0 bg-gradient-to-tr from-tawakal-green/60 via-tawakal-blue/40 to-transparent mix-blend-multiply'></div>
-
-                  {/* Floating elements */}
-                  <div className='absolute top-10 left-10 bg-white/90 backdrop-blur-sm rounded-xl p-4 shadow-lg transform rotate-3 z-10 max-w-[200px]'>
-                    <p className='text-sm font-semibold text-zinc-800'>
-                      Started in
-                    </p>
-                    <p className='text-3xl font-bold text-tawakal-green'>
-                      Somalia
-                    </p>
-                    <p className='text-xs text-zinc-600 mt-1'>
-                      as a physical money transfer company
-                    </p>
+              {/* Decorative corner elements */}
+              <div className='absolute top-0 left-0 w-10 h-10 sm:w-16 sm:h-16 border-t-4 border-l-4 border-tawakal-green/30 rounded-tl-2xl pointer-events-none'></div>
+              <div className='absolute top-0 right-0 w-10 h-10 sm:w-16 sm:h-16 border-t-4 border-r-4 border-tawakal-blue/30 rounded-tr-2xl pointer-events-none'></div>
+              <div className='absolute bottom-0 left-0 w-10 h-10 sm:w-16 sm:h-16 border-b-4 border-l-4 border-tawakal-blue/30 rounded-bl-2xl pointer-events-none'></div>
+              <div className='absolute bottom-0 right-0 w-10 h-10 sm:w-16 sm:h-16 border-b-4 border-r-4 border-tawakal-green/30 rounded-br-2xl pointer-events-none'></div>
+            </motion.div>
+          )}
                   </div>
 
-                  {/* Animated dots */}
-                  <div className='absolute inset-0 z-0'>
-                    <div className='absolute top-1/4 right-1/4 w-3 h-3 bg-white rounded-full animate-pulse'></div>
-                    <div className='absolute top-3/4 left-1/3 w-2 h-2 bg-white rounded-full animate-ping'></div>
-                    <div className='absolute bottom-1/4 right-1/3 w-4 h-4 bg-white/50 rounded-full animate-pulse'></div>
+        {/* Animated Statistics */}
+        <div className='mb-10 sm:mb-16 md:mb-24'>
+          <AnimatedStats />
                   </div>
 
-                  {/* Connection lines */}
-                  <svg
-                    className='absolute inset-0 w-full h-full z-0'
-                    viewBox='0 0 100 100'
+        {/* Immersive Scroll Experience - Regional Backgrounds */}
+        <ScrollBackgroundEffect
+          backgrounds={[
+            { id: "east_africa", from: "#f0f9ff", to: "#e6f7ff" },
+            { id: "middle_east", from: "#fff8e6", to: "#fff2d1" },
+            { id: "north_america_europe", from: "#e6ffe6", to: "#d1ffd1" },
+          ]}>
+          {/* Regional sections */}
+          {isMounted && (
+            <>
+              <RegionSection
+                region='east_africa'
+                title='East Africa'
+                description='Our journey began in Somalia, where we established our first office to help families send money across borders. Today, we serve millions of customers across East Africa, providing essential financial services to communities in Somalia, Kenya, and beyond.'
+                tags={[
+                  { name: "Somalia", color: "green" },
+                  { name: "Kenya", color: "blue" },
+                  { name: "Ethiopia", color: "gold" },
+                  { name: "Tanzania", color: "red" },
+                ]}
+                mapCaption='Our first region of operations, where it all began'
+                markers={eastAfricaMarkers}
+              />
+
+              <RegionSection
+                region='middle_east'
+                title='Middle East'
+                description="Our expansion into the Middle East marked a significant milestone in our growth. With offices in the UAE and partnerships across the region, we've created vital corridors for remittances between the Middle East and East Africa, serving the large diaspora communities."
+                tags={[
+                  { name: "UAE", color: "red" },
+                  { name: "Saudi Arabia", color: "gold" },
+                  { name: "Qatar", color: "blue" },
+                ]}
+                mapCaption='A critical hub connecting Africa with global financial networks'
+                markers={middleEastMarkers}
+                reverse={true}
+              />
+
+              <RegionSection
+                region='north_america_europe'
+                title='North America & Europe'
+                description="Our network extends to key cities across North America and Europe, where large Somali and East African diaspora communities rely on our services to send money home. We've established trusted partnerships with local financial institutions to ensure seamless transfers."
+                tags={[
+                  { name: "USA", color: "blue" },
+                  { name: "UK", color: "red" },
+                  { name: "Canada", color: "green" },
+                ]}
+                mapCaption='Serving diaspora communities across North America and Europe'
+                markers={[
+                  {
+                    name: "London",
+                    coordinates: [-0.1, 51.5] as [number, number],
+                    color: "#0075be",
+                  },
+                  {
+                    name: "Minneapolis",
+                    coordinates: [-93.3, 45.0] as [number, number],
+                    color: "#2fb457",
+                  },
+                  {
+                    name: "Toronto",
+                    coordinates: [-79.4, 43.7] as [number, number],
+                    color: "#f59e0b",
+                  },
+                ]}
+              />
+            </>
+          )}
+        </ScrollBackgroundEffect>
+
+        {/* Values Section */}
+        <ValuesSection />
+
+        {/* CTA Section - enhanced for mobile */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true }}
+          className='relative overflow-hidden rounded-2xl mb-10 sm:mb-16'>
+          {/* Background with gradient overlay */}
+          <div className='absolute inset-0 bg-gradient-to-br from-tawakal-blue via-tawakal-green to-tawakal-blue opacity-90'></div>
+
+          {/* Decorative elements */}
+          <div className='absolute inset-0 overflow-hidden pointer-events-none'>
+            <div className='absolute -top-20 -right-20 w-64 h-64 bg-white/10 rounded-full blur-[50px]'></div>
+            <div className='absolute -bottom-32 -left-32 w-96 h-96 bg-white/10 rounded-full blur-[70px]'></div>
+            <svg
+              className='absolute bottom-0 left-0 w-full h-32 text-white/5'
+              viewBox='0 0 1440 320'
                     preserveAspectRatio='none'>
                     <path
-                      d='M20,30 Q50,10 80,40'
-                      stroke='rgba(255,255,255,0.3)'
-                      strokeWidth='0.5'
-                      fill='none'
-                    />
-                    <path
-                      d='M10,50 Q50,80 90,60'
-                      stroke='rgba(255,255,255,0.3)'
-                      strokeWidth='0.5'
-                      fill='none'
-                    />
+                fill='currentColor'
+                d='M0,288L48,272C96,256,192,224,288,197.3C384,171,480,149,576,165.3C672,181,768,235,864,250.7C960,267,1056,245,1152,224C1248,203,1344,181,1392,170.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'></path>
                   </svg>
                 </div>
 
-                {/* Floating card */}
-                <div className='absolute -bottom-10 -right-5 w-64 bg-white rounded-xl shadow-lg p-4 transform -rotate-3 z-20'>
-                  <div className='flex items-center mb-3'>
-                    <div className='w-10 h-10 rounded-lg bg-tawakal-green/10 flex items-center justify-center mr-3'>
-                      <svg
-                        xmlns='http://www.w3.org/2000/svg'
-                        className='h-5 w-5 text-tawakal-green'
-                        viewBox='0 0 20 20'
-                        fill='currentColor'>
-                        <path
-                          fillRule='evenodd'
-                          d='M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z'
-                          clipRule='evenodd'
-                        />
-                      </svg>
-                    </div>
-                    <div>
-                      <p className='text-sm font-medium text-zinc-800'>
-                        Fast Transfers
-                      </p>
-                      <p className='text-xs text-zinc-500'>Within minutes</p>
-                    </div>
-                  </div>
-                </div>
+          {/* Content container - improved padding for mobile */}
+          <div className='relative z-10 px-5 sm:px-8 py-12 sm:py-16 md:py-24 text-center'>
+            {/* Decorative icon - responsive sizing */}
+            <div className='inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 mb-6 sm:mb-8 rounded-full bg-white/20 backdrop-blur-sm border border-white/30'>
+              <FontAwesomeIcon
+                icon={faGlobe}
+                className='h-8 w-8 sm:h-10 sm:w-10 text-white'
+              />
               </div>
 
-              {/* Right side - Stats cards */}
-              <div className='lg:col-span-5 space-y-6'>
-                <div className='bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1'>
-                  <div className='flex items-center mb-4'>
-                    <div className='w-12 h-12 rounded-full bg-gradient-to-r from-tawakal-green to-tawakal-blue flex items-center justify-center mr-4'>
-                      <svg
-                        xmlns='http://www.w3.org/2000/svg'
-                        className='h-6 w-6 text-white'
-                        fill='none'
-                        viewBox='0 0 24 24'
-                        stroke='currentColor'>
-                        <path
-                          strokeLinecap='round'
-                          strokeLinejoin='round'
-                          strokeWidth={2}
-                          d='M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z'
-                        />
-                      </svg>
-                    </div>
-                    <div>
-                      <p className='text-4xl font-bold text-gradient-green-blue'>
-                        40+
-                      </p>
-                      <p className='text-zinc-500 text-sm'>
-                        Years of Experience
-                      </p>
-                    </div>
-                  </div>
-                  <p className='text-zinc-600'>
-                    With over four decades of combined experience in
-                    international money transfers, we've become the safest, most
-                    secure and reliable option for our customers.
-                  </p>
-                </div>
+            <h2 className='text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 text-white drop-shadow-sm max-w-3xl mx-auto'>
+              Experience the <span className='text-tawakal-gold'>Tawakal</span>{" "}
+              Difference
+            </h2>
 
-                <div className='bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1'>
-                  <div className='flex items-center mb-4'>
-                    <div className='w-12 h-12 rounded-full bg-gradient-to-r from-tawakal-blue to-tawakal-red flex items-center justify-center mr-4'>
-                      <svg
-                        xmlns='http://www.w3.org/2000/svg'
-                        className='h-6 w-6 text-white'
-                        fill='none'
-                        viewBox='0 0 24 24'
-                        stroke='currentColor'>
-                        <path
-                          strokeLinecap='round'
-                          strokeLinejoin='round'
-                          strokeWidth={2}
-                          d='M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z'
-                        />
-                      </svg>
-                    </div>
-                    <div>
-                      <p className='text-4xl font-bold text-gradient-blue-red'>
-                        14+
-                      </p>
-                      <p className='text-zinc-500 text-sm'>
-                        Countries with Branches
-                      </p>
-                    </div>
-                  </div>
-                  <p className='text-zinc-600'>
-                    Our extensive network spans across Australia, Canada,
-                    Djibouti, Ethiopia, Kenya, Norway, Somalia, South Sudan,
-                    Sudan, Sweden, UAE, Uganda, UK, and USA.
-                  </p>
-                </div>
+            <p className='text-base sm:text-lg text-white/90 mb-6 sm:mb-8 md:mb-10 max-w-2xl mx-auto'>
+              Join millions of satisfied customers who trust Tawakal Express for
+              fast, secure, and reliable money transfer services across the
+              globe.
+            </p>
+
+            <div className='flex flex-wrap justify-center gap-3 sm:gap-4'>
+              <Button
+                size='lg'
+                className='bg-white text-tawakal-blue hover:bg-white/90 transition-all duration-300 transform hover:-translate-y-1 shadow-lg hover:shadow-xl text-sm sm:text-base'>
+                <FontAwesomeIcon
+                  icon={faLocationDot}
+                  className='mr-1.5 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4'
+                />
+                Find a Location
+              </Button>
+
+              <Button
+                size='lg'
+                variant='outline'
+                className='border-2 border-white text-tawakal-green hover:bg-white/10 transition-all duration-300 transform hover:-translate-y-1 text-sm sm:text-base'>
+                <FontAwesomeIcon
+                  icon={faPhone}
+                  className='mr-1.5 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4'
+                />
+                Contact Us
+              </Button>
+          </div>
+
+            {/* Trust indicators - responsive spacing and sizing */}
+            <div className='mt-8 sm:mt-10 md:mt-12 flex flex-wrap justify-center gap-4 sm:gap-6 text-white/80'>
+              <div className='flex items-center'>
+                <FontAwesomeIcon
+                  icon={faShieldHalved}
+                  className='mr-1.5 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4'
+                />
+                <span className='text-xs sm:text-sm'>Secure Transfers</span>
+              </div>
+              <div className='flex items-center'>
+                <FontAwesomeIcon
+                  icon={faBolt}
+                  className='mr-1.5 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4'
+                />
+                <span className='text-xs sm:text-sm'>Fast Service</span>
+              </div>
+              <div className='flex items-center'>
+                <FontAwesomeIcon
+                  icon={faStar}
+                  className='mr-1.5 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4'
+                />
+                <span className='text-xs sm:text-sm'>Trusted by Millions</span>
               </div>
             </div>
           </div>
-
-          {/* Values section */}
-          <div className='mt-20'>
-            <h3 className='text-2xl md:text-3xl font-bold text-center mb-12'>
-              Our Core <span className='text-gradient-blue-red'>Values</span>
-            </h3>
-
-            <div className='grid grid-cols-2 md:grid-cols-4 gap-6'>
-              {/* Value 1 */}
-              <div className='bg-white/90 backdrop-blur-sm rounded-xl p-5 shadow-md hover:shadow-xl transition-all duration-300 group'>
-                <div className='w-14 h-14 rounded-full bg-gradient-to-r from-tawakal-green to-tawakal-blue flex items-center justify-center mb-4 mx-auto transform group-hover:scale-110 transition-transform duration-300'>
-                  <svg
-                    xmlns='http://www.w3.org/2000/svg'
-                    className='h-7 w-7 text-white'
-                    viewBox='0 0 20 20'
-                    fill='currentColor'>
-                    <path
-                      fillRule='evenodd'
-                      d='M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z'
-                      clipRule='evenodd'
-                    />
-                  </svg>
-                </div>
-                <h4 className='text-lg font-semibold text-zinc-800 text-center mb-2'>
-                  Integrity
-                </h4>
-                <p className='text-zinc-600 text-center text-sm'>
-                  Being ethical, honest, respectful, and always trying to do
-                  what is right.
-                </p>
-              </div>
-
-              {/* Value 2 */}
-              <div className='bg-white/90 backdrop-blur-sm rounded-xl p-5 shadow-md hover:shadow-xl transition-all duration-300 group'>
-                <div className='w-14 h-14 rounded-full bg-gradient-to-r from-tawakal-blue to-tawakal-green flex items-center justify-center mb-4 mx-auto transform group-hover:scale-110 transition-transform duration-300'>
-                  <svg
-                    xmlns='http://www.w3.org/2000/svg'
-                    className='h-7 w-7 text-white'
-                    viewBox='0 0 20 20'
-                    fill='currentColor'>
-                    <path
-                      fillRule='evenodd'
-                      d='M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z'
-                      clipRule='evenodd'
-                    />
-                  </svg>
-                </div>
-                <h4 className='text-lg font-semibold text-zinc-800 text-center mb-2'>
-                  Excellence
-                </h4>
-                <p className='text-zinc-600 text-center text-sm'>
-                  Challenging convention, innovating and delivering exceptional
-                  results every day.
-                </p>
-              </div>
-
-              {/* Value 3 */}
-              <div className='bg-white/90 backdrop-blur-sm rounded-xl p-5 shadow-md hover:shadow-xl transition-all duration-300 group'>
-                <div className='w-14 h-14 rounded-full bg-gradient-to-r from-tawakal-blue to-tawakal-red flex items-center justify-center mb-4 mx-auto transform group-hover:scale-110 transition-transform duration-300'>
-                  <svg
-                    xmlns='http://www.w3.org/2000/svg'
-                    className='h-7 w-7 text-white'
-                    viewBox='0 0 20 20'
-                    fill='currentColor'>
-                    <path
-                      fillRule='evenodd'
-                      d='M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z'
-                      clipRule='evenodd'
-                    />
-                  </svg>
-                </div>
-                <h4 className='text-lg font-semibold text-zinc-800 text-center mb-2'>
-                  Customer Care
-                </h4>
-                <p className='text-zinc-600 text-center text-sm'>
-                  Working to create value for our customers and earning their
-                  trust every day.
-                </p>
-              </div>
-
-              {/* Value 4 */}
-              <div className='bg-white/90 backdrop-blur-sm rounded-xl p-5 shadow-md hover:shadow-xl transition-all duration-300 group'>
-                <div className='w-14 h-14 rounded-full bg-gradient-to-r from-tawakal-red to-tawakal-blue flex items-center justify-center mb-4 mx-auto transform group-hover:scale-110 transition-transform duration-300'>
-                  <svg
-                    xmlns='http://www.w3.org/2000/svg'
-                    className='h-7 w-7 text-white'
-                    viewBox='0 0 20 20'
-                    fill='currentColor'>
-                    <path d='M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z' />
-                  </svg>
-                </div>
-                <h4 className='text-lg font-semibold text-zinc-800 text-center mb-2'>
-                  Teamwork
-                </h4>
-                <p className='text-zinc-600 text-center text-sm'>
-                  Working together and helping each other grow to execute our
-                  mission.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Global presence visualization - Improved */}
-          <div className='mt-20'>
-            <div className='bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl p-8 relative overflow-hidden'>
-              <div className='absolute top-0 right-0 w-64 h-64 bg-tawakal-green/5 rounded-full blur-3xl -z-10'></div>
-              <div className='absolute bottom-0 left-0 w-64 h-64 bg-tawakal-blue/5 rounded-full blur-3xl -z-10'></div>
-
-              <h3 className='text-2xl md:text-3xl font-bold text-center mb-8'>
-                Global{" "}
-                <span className='text-gradient-green-blue'>Presence</span>
-              </h3>
-
-              {/* Regions */}
-              <div className='grid grid-cols-1 md:grid-cols-3 gap-6 mb-8'>
-                <div className='bg-gradient-to-br from-tawakal-green/10 to-tawakal-green/5 rounded-xl p-5 shadow-md'>
-                  <h4 className='text-lg font-semibold text-zinc-800 mb-3 flex items-center'>
-                    <span className='text-2xl mr-2'>🌍</span> Africa
-                  </h4>
-                  <div className='flex flex-wrap gap-2'>
-                    <div className='flex items-center bg-white rounded-full px-3 py-1 shadow-sm'>
-                      <span className='text-sm mr-1'>🇸🇴</span>
-                      <span className='text-xs font-medium'>Somalia</span>
-                    </div>
-                    <div className='flex items-center bg-white rounded-full px-3 py-1 shadow-sm'>
-                      <span className='text-sm mr-1'>🇰🇪</span>
-                      <span className='text-xs font-medium'>Kenya</span>
-                    </div>
-                    <div className='flex items-center bg-white rounded-full px-3 py-1 shadow-sm'>
-                      <span className='text-sm mr-1'>🇪🇹</span>
-                      <span className='text-xs font-medium'>Ethiopia</span>
-                    </div>
-                    <div className='flex items-center bg-white rounded-full px-3 py-1 shadow-sm'>
-                      <span className='text-sm mr-1'>🇺🇬</span>
-                      <span className='text-xs font-medium'>Uganda</span>
-                    </div>
-                    <div className='flex items-center bg-white rounded-full px-3 py-1 shadow-sm'>
-                      <span className='text-sm mr-1'>🇩🇯</span>
-                      <span className='text-xs font-medium'>Djibouti</span>
-                    </div>
-                    <div className='flex items-center bg-white rounded-full px-3 py-1 shadow-sm'>
-                      <span className='text-sm mr-1'>🇸🇸</span>
-                      <span className='text-xs font-medium'>South Sudan</span>
-                    </div>
-                    <div className='flex items-center bg-white rounded-full px-3 py-1 shadow-sm'>
-                      <span className='text-sm mr-1'>🇸🇩</span>
-                      <span className='text-xs font-medium'>Sudan</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div className='bg-gradient-to-br from-tawakal-blue/10 to-tawakal-blue/5 rounded-xl p-5 shadow-md'>
-                  <h4 className='text-lg font-semibold text-zinc-800 mb-3 flex items-center'>
-                    <span className='text-2xl mr-2'>🌍</span> Europe & Americas
-                  </h4>
-                  <div className='flex flex-wrap gap-2'>
-                    <div className='flex items-center bg-white rounded-full px-3 py-1 shadow-sm'>
-                      <span className='text-sm mr-1'>🇬🇧</span>
-                      <span className='text-xs font-medium'>UK</span>
-                    </div>
-                    <div className='flex items-center bg-white rounded-full px-3 py-1 shadow-sm'>
-                      <span className='text-sm mr-1'>🇸🇪</span>
-                      <span className='text-xs font-medium'>Sweden</span>
-                    </div>
-                    <div className='flex items-center bg-white rounded-full px-3 py-1 shadow-sm'>
-                      <span className='text-sm mr-1'>🇳🇴</span>
-                      <span className='text-xs font-medium'>Norway</span>
-                    </div>
-                    <div className='flex items-center bg-white rounded-full px-3 py-1 shadow-sm'>
-                      <span className='text-sm mr-1'>🇺🇸</span>
-                      <span className='text-xs font-medium'>USA</span>
-                    </div>
-                    <div className='flex items-center bg-white rounded-full px-3 py-1 shadow-sm'>
-                      <span className='text-sm mr-1'>🇨🇦</span>
-                      <span className='text-xs font-medium'>Canada</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div className='bg-gradient-to-br from-tawakal-red/10 to-tawakal-red/5 rounded-xl p-5 shadow-md'>
-                  <h4 className='text-lg font-semibold text-zinc-800 mb-3 flex items-center'>
-                    <span className='text-2xl mr-2'>🌏</span> Middle East & Asia
-                  </h4>
-                  <div className='flex flex-wrap gap-2'>
-                    <div className='flex items-center bg-white rounded-full px-3 py-1 shadow-sm'>
-                      <span className='text-sm mr-1'>🇦🇪</span>
-                      <span className='text-xs font-medium'>UAE</span>
-                    </div>
-                    <div className='flex items-center bg-white rounded-full px-3 py-1 shadow-sm'>
-                      <span className='text-sm mr-1'>🇦🇺</span>
-                      <span className='text-xs font-medium'>Australia</span>
-                    </div>
-                  </div>
-                  <p className='text-xs text-zinc-600 mt-3'>
-                    Plus partnerships in Bangladesh, Egypt, India, Indonesia,
-                    Jordan, Kuwait, Lebanon, Morocco, Nepal, Pakistan,
-                    Philippines, and Sri Lanka.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* CTA */}
-          <div className='mt-16 text-center'>
-            <Button className='bg-gradient-to-r from-tawakal-green to-tawakal-blue hover:from-tawakal-blue hover:to-tawakal-green text-white rounded-full px-8 py-6 text-base shadow-md hover:shadow-lg transition-all duration-300'>
-              Learn More About Us <span className='ml-2'>→</span>
-            </Button>
-          </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -21,37 +21,42 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className='bg-white border-t border-gray-200'>
-      <div className='max-w-7xl mx-auto px-4 md:px-8 lg:px-16 py-12'>
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>
+    <footer className='relative bg-white border-t border-gray-200 w-full z-50'>
+      {/* Clear any background effects */}
+      <div className='absolute inset-0 bg-white'></div>
+
+      <div className='relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-16 py-8 md:py-12'>
+        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8'>
           {/* Company Info */}
           <div className='space-y-4'>
             <Link href='/' className='inline-block'>
-              <Image
-                src='/logo.png'
-                alt='Tawakal Express'
-                width={150}
-                height={45}
-                className='h-10 w-auto'
-              />
+              <div className='relative h-10 w-[150px]'>
+                <Image
+                  src='/logo.png'
+                  alt='Tawakal Express'
+                  fill
+                  className='object-contain'
+                  priority
+                />
+              </div>
             </Link>
             <p className='text-zinc-600 text-sm'>
               Safe, Secure and Reliable financial solutions worldwide.
             </p>
-            <div className='flex space-x-3'>
+            <div className='flex space-x-4'>
               <a
                 href='https://www.facebook.com/share/19J36i8vZW/'
-                className='text-zinc-400 hover:text-tawakal-green transition-colors'>
+                className='text-zinc-400 hover:text-tawakal-green transition-colors p-2 rounded-full hover:bg-gray-100'>
                 <Facebook size={18} />
               </a>
               <a
                 href='https://x.com/TawakalExpress?t=SPrcwlD0rDuUrK7KK4PITA&s=09'
-                className='text-zinc-400 hover:text-tawakal-blue transition-colors'>
+                className='text-zinc-400 hover:text-tawakal-blue transition-colors p-2 rounded-full hover:bg-gray-100'>
                 <Twitter size={18} />
               </a>
               <a
                 href='https://www.instagram.com/tawakalexpress?igsh=MWE0eDRneHBhYWY2cw=='
-                className='text-zinc-400 hover:text-tawakal-red transition-colors'>
+                className='text-zinc-400 hover:text-tawakal-red transition-colors p-2 rounded-full hover:bg-gray-100'>
                 <Instagram size={18} />
               </a>
             </div>
@@ -59,7 +64,7 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className='text-base font-medium text-zinc-800 mb-4'>
+            <h3 className='text-base font-semibold text-zinc-800 mb-4'>
               Quick Links
             </h3>
             <ul className='space-y-2'>
@@ -116,7 +121,7 @@ export default function Footer() {
 
           {/* Contact Info */}
           <div>
-            <h3 className='text-base font-medium text-zinc-800 mb-4'>
+            <h3 className='text-base font-semibold text-zinc-800 mb-4'>
               Contact Us
             </h3>
             <ul className='space-y-3'>
@@ -149,7 +154,7 @@ export default function Footer() {
 
           {/* Newsletter */}
           <div>
-            <h3 className='text-base font-medium text-zinc-800 mb-4'>
+            <h3 className='text-base font-semibold text-zinc-800 mb-4'>
               Newsletter
             </h3>
             <p className='text-zinc-600 text-sm mb-3'>
@@ -161,7 +166,9 @@ export default function Footer() {
                 placeholder='Your email'
                 className='rounded-r-none border-r-0 focus-visible:ring-0 focus-visible:ring-offset-0'
               />
-              <Button className='bg-tawakal-green hover:bg-tawakal-green/90 text-white rounded-l-none'>
+              <Button
+                type='submit'
+                className='bg-tawakal-green hover:bg-tawakal-green/90 text-white rounded-l-none'>
                 <Send className='h-4 w-4' />
               </Button>
             </div>
@@ -170,8 +177,8 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className='border-t border-gray-200'>
-        <div className='max-w-7xl mx-auto px-4 md:px-8 lg:px-16 py-4'>
+      <div className='relative z-10 border-t border-gray-200 bg-gray-50'>
+        <div className='max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-16 py-4'>
           <div className='flex flex-col md:flex-row justify-between items-center'>
             <p className='text-zinc-500 text-xs'>
               &copy; {currentYear} Tawakal Express. All rights reserved.
