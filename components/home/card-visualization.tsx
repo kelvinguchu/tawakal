@@ -243,7 +243,7 @@ export default function CardVisualization({
   return (
     <div
       ref={containerRef}
-      className={`${geistMono.className} relative h-[350px] sm:h-[400px] md:h-[450px] w-full`}>
+      className={`${geistMono.className} relative h-[280px] xs:h-[320px] sm:h-[380px] md:h-[450px] w-full`}>
       {/* Interactive canvas background */}
       <canvas
         ref={canvasRef}
@@ -255,46 +255,50 @@ export default function CardVisualization({
       <div className='relative w-full h-full'>
         {/* Credit card - No hover effects */}
         <div
-          className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[260px] sm:w-[300px] md:w-[340px] h-[180px] sm:h-[200px] md:h-[220px] rounded-2xl overflow-hidden z-20'
+          className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[240px] xs:w-[260px] sm:w-[300px] md:w-[340px] h-[160px] xs:h-[180px] sm:h-[200px] md:h-[220px] rounded-2xl overflow-hidden z-20'
           style={{
             background: "linear-gradient(135deg, #2fb457, #0075be)",
             boxShadow:
               "0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 30px rgba(47, 180, 87, 0.2)",
           }}>
-          <div className='p-3 sm:p-4 md:p-6 text-white h-full flex flex-col justify-between relative z-10'>
+          <div className='p-2 xs:p-3 sm:p-4 md:p-6 text-white h-full flex flex-col justify-between relative z-10'>
             <div className='flex justify-between items-start'>
               <div>
                 <p className='text-xs md:text-sm opacity-80'>Tawakal Express</p>
-                <p className='text-base sm:text-lg md:text-xl font-bold mt-1'>
+                <p className='text-sm xs:text-base sm:text-lg md:text-xl font-bold mt-0.5 sm:mt-1'>
                   Premium Card
                 </p>
               </div>
-              <div className='w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full bg-white/30 flex items-center justify-center'>
+              <div className='w-6 h-6 xs:w-8 xs:h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 rounded-full bg-white/30 flex items-center justify-center'>
                 <Image
                   src='/icons/card-chip.svg'
                   alt='Card Chip'
                   width={16}
                   height={16}
-                  className='w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6'
+                  className='w-3 h-3 xs:w-4 xs:h-4 sm:w-5 sm:h-5 md:w-6 md:h-6'
                 />
               </div>
             </div>
             <div>
-              <p className='text-xs md:text-sm opacity-80 mb-1'>Card Number</p>
-              <p className='text-sm sm:text-base md:text-lg tracking-wider'>
+              <p className='text-xs md:text-sm opacity-80 mb-0.5 sm:mb-1'>
+                Card Number
+              </p>
+              <p className='text-xs xs:text-sm sm:text-base md:text-lg tracking-wider'>
                 **** **** **** 4289
               </p>
             </div>
             <div className='flex justify-between items-center'>
               <div>
-                <p className='text-xs opacity-80'>Card Holder</p>
-                <p className='text-xs md:text-sm font-medium tracking-wide'>
+                <p className='text-[10px] xs:text-xs opacity-80'>Card Holder</p>
+                <p className='text-[10px] xs:text-xs md:text-sm font-medium tracking-wide'>
                   AHMED MOHAMED
                 </p>
               </div>
               <div>
-                <p className='text-xs opacity-80'>Expires</p>
-                <p className='text-xs md:text-sm font-medium'>09/25</p>
+                <p className='text-[10px] xs:text-xs opacity-80'>Expires</p>
+                <p className='text-[10px] xs:text-xs md:text-sm font-medium'>
+                  09/25
+                </p>
               </div>
             </div>
           </div>
@@ -308,28 +312,28 @@ export default function CardVisualization({
 
         {/* Card shadow - static */}
         <div
-          className='absolute top-1/2 left-1/2 w-[240px] sm:w-[280px] md:w-[320px] h-[10px] bg-black/30 rounded-full blur-md z-10'
+          className='absolute top-1/2 left-1/2 w-[220px] xs:w-[240px] sm:w-[280px] md:w-[320px] h-[8px] sm:h-[10px] bg-black/30 rounded-full blur-md z-10'
           style={{
-            transform: `translate(-50%, 100px)`,
+            transform: `translate(-50%, 90px)`,
           }}></div>
 
         {/* USD/KES Exchange Rate Card - With gradient text */}
-        <div className='absolute top-[15%] left-[5%] bg-white/15 backdrop-blur-md rounded-lg p-1.5 sm:p-2 md:p-3 shadow-lg border border-white/20 z-30 animate-float-slow'>
+        <div className='absolute top-[12%] left-[5%] bg-white/15 backdrop-blur-md rounded-lg p-1 xs:p-1.5 sm:p-2 md:p-3 shadow-lg border border-white/20 z-30 animate-float-slow'>
           <div className='flex items-center'>
-            <div className='w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 rounded-full bg-tawakal-green/20 flex items-center justify-center mr-1 sm:mr-2'>
-              <span className='text-tawakal-green text-sm sm:text-base md:text-lg font-bold'>
+            <div className='w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 rounded-full bg-tawakal-green/20 flex items-center justify-center mr-1 sm:mr-2'>
+              <span className='text-tawakal-green text-xs xs:text-sm sm:text-base md:text-lg font-bold'>
                 $
               </span>
             </div>
             <div>
-              <p className='text-tawakal-blue font-medium text-[10px] sm:text-xs md:text-sm'>
+              <p className='text-tawakal-blue font-medium text-[8px] xs:text-[10px] sm:text-xs md:text-sm'>
                 USD/KES
               </p>
               <div className='flex items-center'>
-                <p className='text-tawakal-green/90 text-[10px] sm:text-xs font-medium'>
+                <p className='text-tawakal-green/90 text-[8px] xs:text-[10px] sm:text-xs font-medium'>
                   128.45
                 </p>
-                <span className='text-tawakal-green text-[10px] sm:text-xs ml-1'>
+                <span className='text-tawakal-green text-[8px] xs:text-[10px] sm:text-xs ml-0.5 xs:ml-1'>
                   ↑ 0.2%
                 </span>
               </div>
@@ -338,22 +342,22 @@ export default function CardVisualization({
         </div>
 
         {/* GBP/SOS Exchange Rate Card - With gradient text */}
-        <div className='absolute bottom-[15%] right-[5%] bg-white/15 backdrop-blur-md rounded-lg p-1.5 sm:p-2 md:p-3 shadow-lg border border-white/20 z-30 animate-float [animation-delay:0.5s]'>
+        <div className='absolute bottom-[12%] right-[5%] bg-white/15 backdrop-blur-md rounded-lg p-1 xs:p-1.5 sm:p-2 md:p-3 shadow-lg border border-white/20 z-30 animate-float [animation-delay:0.5s]'>
           <div className='flex items-center'>
-            <div className='w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 rounded-full bg-tawakal-blue/20 flex items-center justify-center mr-1 sm:mr-2'>
-              <span className='text-tawakal-blue text-sm sm:text-base md:text-lg font-bold'>
+            <div className='w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 rounded-full bg-tawakal-blue/20 flex items-center justify-center mr-1 sm:mr-2'>
+              <span className='text-tawakal-blue text-xs xs:text-sm sm:text-base md:text-lg font-bold'>
                 £
               </span>
             </div>
             <div>
-              <p className='text-tawakal-blue font-medium text-[10px] sm:text-xs md:text-sm'>
+              <p className='text-tawakal-blue font-medium text-[8px] xs:text-[10px] sm:text-xs md:text-sm'>
                 GBP/SOS
               </p>
               <div className='flex items-center'>
-                <p className='text-tawakal-blue/90 text-[10px] sm:text-xs font-medium'>
+                <p className='text-tawakal-blue/90 text-[8px] xs:text-[10px] sm:text-xs font-medium'>
                   72,450
                 </p>
-                <span className='text-tawakal-blue text-[10px] sm:text-xs ml-1'>
+                <span className='text-tawakal-blue text-[8px] xs:text-[10px] sm:text-xs ml-0.5 xs:ml-1'>
                   ↑ 1.5%
                 </span>
               </div>
@@ -362,18 +366,18 @@ export default function CardVisualization({
         </div>
 
         {/* Notification toast - With gradient text */}
-        <div className='absolute bottom-[30%] left-[5%] bg-white/15 backdrop-blur-md rounded-lg p-1.5 sm:p-2 md:p-3 shadow-lg border border-white/20 z-30 animate-float-reverse [animation-delay:1s]'>
+        <div className='absolute bottom-[25%] left-[5%] bg-white/15 backdrop-blur-md rounded-lg p-1 xs:p-1.5 sm:p-2 md:p-3 shadow-lg border border-white/20 z-30 animate-float-reverse [animation-delay:1s]'>
           <div className='flex items-center'>
-            <div className='w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 rounded-full bg-tawakal-red/20 flex items-center justify-center mr-1 sm:mr-2'>
-              <span className='text-tawakal-red text-sm sm:text-base md:text-lg font-bold'>
+            <div className='w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 rounded-full bg-tawakal-red/20 flex items-center justify-center mr-1 sm:mr-2'>
+              <span className='text-tawakal-red text-xs xs:text-sm sm:text-base md:text-lg font-bold'>
                 !
               </span>
             </div>
-            <p className='text-tawakal-red font-medium text-[10px] sm:text-xs md:text-sm'>
+            <p className='text-tawakal-red font-medium text-[8px] xs:text-[10px] sm:text-xs md:text-sm'>
               Transfer Complete
             </p>
           </div>
-          <p className='text-tawakal-blue/90 text-[10px] sm:text-xs mt-1 sm:mt-2'>
+          <p className='text-tawakal-blue/90 text-[8px] xs:text-[10px] sm:text-xs mt-0.5 xs:mt-1 sm:mt-2'>
             Your transfer of{" "}
             <span className='text-tawakal-green font-medium'>KES 5,000</span>{" "}
             was received!
@@ -381,21 +385,21 @@ export default function CardVisualization({
         </div>
 
         {/* Decorative elements - Enhanced */}
-        <div className='absolute top-[30%] right-[20%] w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 rounded-full bg-tawakal-green/10 border border-tawakal-green/40 animate-ping-slow opacity-80 z-10'></div>
-        <div className='absolute bottom-[25%] left-[25%] w-3 h-3 sm:w-4 sm:h-4 rounded-full bg-tawakal-blue/10 border border-tawakal-blue/40 animate-ping-slow [animation-delay:1s] opacity-80 z-10'></div>
-        <div className='absolute top-[45%] right-[35%] w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-tawakal-red/10 border border-tawakal-red/40 animate-ping-slow [animation-delay:2s] opacity-80 z-10'></div>
+        <div className='absolute top-[30%] right-[20%] w-3 h-3 xs:w-4 xs:h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 rounded-full bg-tawakal-green/10 border border-tawakal-green/40 animate-ping-slow opacity-80 z-10'></div>
+        <div className='absolute bottom-[25%] left-[25%] w-2 h-2 xs:w-3 xs:h-3 sm:w-4 sm:h-4 rounded-full bg-tawakal-blue/10 border border-tawakal-blue/40 animate-ping-slow [animation-delay:1s] opacity-80 z-10'></div>
+        <div className='absolute top-[45%] right-[35%] w-1.5 h-1.5 xs:w-2 xs:h-2 sm:w-3 sm:h-3 rounded-full bg-tawakal-red/10 border border-tawakal-red/40 animate-ping-slow [animation-delay:2s] opacity-80 z-10'></div>
 
         {/* Currency symbols - Enhanced */}
-        <div className='absolute top-[10%] right-[30%] text-tawakal-green/15 text-2xl sm:text-3xl md:text-4xl font-bold animate-float-slow z-10'>
+        <div className='absolute top-[10%] right-[30%] text-tawakal-green/15 text-xl xs:text-2xl sm:text-3xl md:text-4xl font-bold animate-float-slow z-10'>
           $
         </div>
-        <div className='absolute bottom-[20%] right-[40%] text-tawakal-blue/15 text-xl sm:text-2xl md:text-3xl font-bold animate-float z-10'>
+        <div className='absolute bottom-[20%] right-[40%] text-tawakal-blue/15 text-lg xs:text-xl sm:text-2xl md:text-3xl font-bold animate-float z-10'>
           £
         </div>
-        <div className='absolute top-[60%] left-[30%] text-tawakal-red/15 text-xl sm:text-2xl md:text-3xl font-bold animate-float-reverse z-10'>
+        <div className='absolute top-[60%] left-[30%] text-tawakal-red/15 text-lg xs:text-xl sm:text-2xl md:text-3xl font-bold animate-float-reverse z-10'>
           €
         </div>
-        <div className='absolute top-[25%] left-[15%] text-tawakal-gold/15 text-lg sm:text-xl md:text-2xl font-bold animate-float [animation-delay:1.5s] z-10'>
+        <div className='absolute top-[25%] left-[15%] text-tawakal-gold/15 text-base xs:text-lg sm:text-xl md:text-2xl font-bold animate-float [animation-delay:1.5s] z-10'>
           ¥
         </div>
       </div>
