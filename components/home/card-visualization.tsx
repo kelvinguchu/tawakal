@@ -243,7 +243,7 @@ export default function CardVisualization({
   return (
     <div
       ref={containerRef}
-      className='relative h-[350px] sm:h-[400px] md:h-[450px] w-full'>
+      className={`${geistMono.className} relative h-[350px] sm:h-[400px] md:h-[450px] w-full`}>
       {/* Interactive canvas background */}
       <canvas
         ref={canvasRef}
@@ -281,25 +281,20 @@ export default function CardVisualization({
             </div>
             <div>
               <p className='text-xs md:text-sm opacity-80 mb-1'>Card Number</p>
-              <p
-                className={`${geistMono.className} text-sm sm:text-base md:text-lg tracking-wider`}>
+              <p className='text-sm sm:text-base md:text-lg tracking-wider'>
                 **** **** **** 4289
               </p>
             </div>
             <div className='flex justify-between items-center'>
               <div>
                 <p className='text-xs opacity-80'>Card Holder</p>
-                <p
-                  className={`${geistMono.className} text-xs md:text-sm font-medium tracking-wide`}>
+                <p className='text-xs md:text-sm font-medium tracking-wide'>
                   AHMED MOHAMED
                 </p>
               </div>
               <div>
                 <p className='text-xs opacity-80'>Expires</p>
-                <p
-                  className={`${geistMono.className} text-xs md:text-sm font-medium`}>
-                  09/25
-                </p>
+                <p className='text-xs md:text-sm font-medium'>09/25</p>
               </div>
             </div>
           </div>
@@ -331,8 +326,7 @@ export default function CardVisualization({
                 USD/KES
               </p>
               <div className='flex items-center'>
-                <p
-                  className={`${geistMono.className} text-tawakal-green/90 text-[10px] sm:text-xs font-medium`}>
+                <p className='text-tawakal-green/90 text-[10px] sm:text-xs font-medium'>
                   128.45
                 </p>
                 <span className='text-tawakal-green text-[10px] sm:text-xs ml-1'>
@@ -356,8 +350,7 @@ export default function CardVisualization({
                 GBP/SOS
               </p>
               <div className='flex items-center'>
-                <p
-                  className={`${geistMono.className} text-tawakal-blue/90 text-[10px] sm:text-xs font-medium`}>
+                <p className='text-tawakal-blue/90 text-[10px] sm:text-xs font-medium'>
                   72,450
                 </p>
                 <span className='text-tawakal-blue text-[10px] sm:text-xs ml-1'>
@@ -382,10 +375,7 @@ export default function CardVisualization({
           </div>
           <p className='text-tawakal-blue/90 text-[10px] sm:text-xs mt-1 sm:mt-2'>
             Your transfer of{" "}
-            <span
-              className={`${geistMono.className} text-tawakal-green font-medium`}>
-              KES 5,000
-            </span>{" "}
+            <span className='text-tawakal-green font-medium'>KES 5,000</span>{" "}
             was received!
           </p>
         </div>
