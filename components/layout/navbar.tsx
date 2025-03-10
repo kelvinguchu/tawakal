@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { useState, useEffect, useRef } from "react";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import Products from "../home/products";
-import ProductsPopover from "../products/ProductsPopover";
+import ProductsPopover from "./products-popover";
 import { AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import {
